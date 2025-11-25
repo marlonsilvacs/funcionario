@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox alignment="TOP_LEFT" spacing="16.0"
+      xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
+      fx:controller="org.sysfuncionario.controller.FuncionarioController">
+    <padding>
+        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0"/>
+    </padding>
+
+    <Label text="Cadastro de Funcionários">
+        <font><Font name="System Bold" size="18.0"/></font>
+    </Label>
+
+    <TitledPane expanded="true" text="Dados do Funcionário">
+        <content>
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                    <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+
+                <Label text="Matrícula:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="matriculaField" promptText="Ex: 000123" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Nome:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <TextField fx:id="nomeField" promptText="Nome completo" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <Label text="CPF:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="cpfField" promptText="Somente números" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Data Nasc.:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <DatePicker fx:id="dataNascimentoPicker" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                <Label text="Cargo:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="cargoField" promptText="Ex: Analista" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Salário:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <TextField fx:id="salarioField" promptText="Ex: 3500.00" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+                <Label text="Data Contratação:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <DatePicker fx:id="dataContratacaoPicker" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <rowConstraints>
+                    <RowConstraints/><RowConstraints/><RowConstraints/><RowConstraints/>
+                </rowConstraints>
+            </GridPane>
+        </content>
+    </TitledPane>
+
+    <TitledPane expanded="true" text="Endereço">
+        <content>
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                    <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+
+                <Label text="Logradouro:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="logradouroField" promptText="Rua/Av./Trav." GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Número:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <TextField fx:id="numeroField" promptText="S/N ou nº" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <Label text="Complemento:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="complementoField" promptText="Apto, bloco, etc." GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Bairro:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <TextField fx:id="bairroField" promptText="Bairro" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                <Label text="Cidade:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="cidadeField" promptText="Cidade" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Estado:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <ComboBox fx:id="estadoCombo" promptText="UF" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+                <Label text="CEP:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <TextField fx:id="cepField" promptText="Somente números" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <rowConstraints>
+                    <RowConstraints/><RowConstraints/><RowConstraints/><RowConstraints/>
+                </rowConstraints>
+            </GridPane>
+        </content>
+    </TitledPane>
+
+    <HBox spacing="10">
+        <Button fx:id="btnCadastrar"
+                onAction="#onCadastrar"
+                style="-fx-background-color: #00aaf4;"
+                text="Cadastrar"
+                textFill="WHITE"/>
+
+
+        <Button fx:id="btnAtualizar" onAction="#onAtualizar" style="-fx-background-color: #00aaf4;" text="Atualizar" textFill="WHITE"/>
+        <Button fx:id="btnExcluir" onAction="#onExcluir" style="-fx-background-color: #00aaf4;" text="Excluir" textFill="WHITE"/>
+        <Button fx:id="btnConsultar" onAction="#onConsultar" style="-fx-background-color: #00aaf4;" text="Consultar por Matrícula" textFill="WHITE"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="btnLimpar" onAction="#onLimpar" style="-fx-background-color: #00aaf4;" text="Limpar" textFill="WHITE"/>
+    </HBox>
+
+    <TitledPane expanded="true" text="Funcionários Cadastrados">
+        <content>
+            <VBox spacing="8">
+
+                <HBox spacing="8">
+                    <Button fx:id="btnListarTodos" onAction="#onListarTodos" style="-fx-background-color: #00aaf4;" text="Listar Todos" textFill="WHITE"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                </HBox>
+
+                <HBox spacing="8" style="-fx-padding: 4 0 0 0;">
+                    <Label text="Cargo:"/>
+                    <TextField fx:id="cargoFiltroField" promptText="Ex: Analista" prefWidth="160"/>
+
+                    <Label text="Salário entre:"/>
+                    <TextField fx:id="salarioMinField" promptText="mín" prefWidth="90"/>
+                    <Label text="e"/>
+                    <TextField fx:id="salarioMaxField" promptText="máx" prefWidth="90"/>
+
+                    <Button fx:id="btnFiltrarCargo" onAction="#onFiltrarCargo" style="-fx-background-color: #00aaf4;" text="Filtrar por Cargo" textFill="WHITE"/>
+                    <Button fx:id="btnFiltrarFaixa" onAction="#onFiltrarFaixa" style="-fx-background-color: #00aaf4;" text="Filtrar por Faixa" textFill="WHITE"/>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="btnMediaPorCargo" onAction="#onMediaPorCargo" style="-fx-background-color: #00aaf4;" text="Média Salarial por Cargo" textFill="WHITE"/>
+                    <Button fx:id="btnAgruparCidade" onAction="#onAgruparPorCidade" style="-fx-background-color: #00aaf4;" text="Agrupar por Cidade" textFill="WHITE"/>
+                    <Button fx:id="btnAgruparEstado" onAction="#onAgruparPorEstado" style="-fx-background-color: #00aaf4;" text="Agrupar por Estado" textFill="WHITE"/>
+                    <Button fx:id="btnLimparFiltros" onAction="#onLimparFiltros" style="-fx-background-color: #00aaf4;" text="Limpar Filtros" textFill="WHITE"/>
+                </HBox>
+
+                <TableView fx:id="tabelaFuncionarios" prefHeight="280">
+                    <columns>
+                        <TableColumn fx:id="colMatricula" prefWidth="110" text="Matrícula"/>
+                        <TableColumn fx:id="colNome" prefWidth="180" text="Nome"/>
+                        <TableColumn fx:id="colCpf" prefWidth="120" text="CPF"/>
+                        <TableColumn fx:id="colCargo" prefWidth="140" text="Cargo"/>
+                        <TableColumn fx:id="colSalario" prefWidth="100" text="Salário"/>
+                        <TableColumn fx:id="colDataContratacao" prefWidth="120" text="Contratação"/>
+                        <TableColumn fx:id="colCidade" prefWidth="140" text="Cidade"/>
+                        <TableColumn fx:id="colEstado" prefWidth="60" text="UF"/>
+                        <TableColumn fx:id="colCep" prefWidth="100" text="CEP"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </content>
+    </TitledPane>
+
+    <Label fx:id="statusLabel" textFill="#2e7d32"/>
+
+</VBox>
